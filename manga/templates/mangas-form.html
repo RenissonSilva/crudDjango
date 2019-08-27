@@ -5,21 +5,28 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    {% if manga %}
+        <title>Atualizar</title>
+    {% else %}
+        <title>Adicionar</title>
+    {% endif %}
 </head>
 <body>
-
-    <h1>New/Update manga</h1>
+    {% if manga %}
+        <h1>Atualizar mangá</h1>
+    {% else %}
+        <h1>Adicionar mangá</h1>
+    {% endif %}
 
     <form method="POST">
         {% csrf_token %}
         {{ form }}
-        <button type="submit">Save</button>
+        <button type="submit">Salvar</button>
     </form>
 
 
     {% if manga %}
-        <a href="{% url 'delete_manga' manga.id %}">Delete</a>
+        <a href="{% url 'delete_manga' manga.id %}">Apagar</a>
     {% endif %}
 </body>
 </html>

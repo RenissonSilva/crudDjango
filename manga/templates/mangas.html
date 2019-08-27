@@ -5,17 +5,30 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Mangás</title>
 </head>
 <body>
-    <ul>
-        {% for manga in mangas %}
-            <a href="{% url 'update_manga' manga.id %}">
-                <li> {{ manga.description }}</li>
-            </a>
-        {% endfor %}
-    </ul>
+    <table>
+        <tr>
+            <th>Nome</th>
+            <th>Autor</th>
+            <th>Ano de lançamento</th>
+        </tr>
+        <tr>
+            {% for manga in mangas %}
+                    <td> {{ manga.nome }}</td>
+                    <td> {{ manga.autor }}</td>
+                    <td> {{ manga.ano }}</td>
+                    <td>
+                        <a href="{% url 'update_manga' manga.id %}">
+                            Editar
+                        </a>
+                    </td>
+        </tr>
+            {% endfor %}
+        
+    </table>
 
-    <a href="{% url 'create_manga' %}">New manga</a>
+    <a href="{% url 'create_manga' %}">Adicionar mangá</a>
 </body>
 </html>
