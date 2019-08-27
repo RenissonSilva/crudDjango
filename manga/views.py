@@ -36,4 +36,4 @@ def delete_manga(request, id):
         manga.delete()
         return redirect('list_mangas')
 
-    return render(request, 'prod-delete-confirm.html', {'manga': manga})
+    return render(request, 'manga-delete-confirm.html', {'manga': manga})
