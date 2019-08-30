@@ -27,6 +27,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+STATICFILES_DIRS = [
+    "/home/clay/Documentos/crudDjango/manga/static",
+]
 
 # Application definition
 

@@ -1,0 +1,43 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css'%}">
+    {% if manga %}
+        <title>Atualizar</title>
+    {% else %}
+        <title>Adicionar</title>
+    {% endif %}
+</head>
+<body>
+    {% if manga %}
+        <h1>Atualizar mangá</h1>
+    {% else %}
+        <h1>Adicionar mangá</h1>
+    {% endif %}
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form }}
+        <center>
+
+            <button class="waves-effect waves-light btn-large" type="submit"><i class="material-icons right">check</i>Salvar</button>
+            
+            {% if manga %}
+                <a class="waves-effect waves-light btn-large btn-delete" href="{% url 'delete_manga' manga.id %}"><i class="material-icons right">cancel</i>Apagar</a>
+            {% else %}
+            <a class="waves-effect waves-light btn-large btn-delete" href="{% url 'list_mangas' %}"><i class="material-icons right">cancel</i>Voltar</a>
+            {% endif %}
+        </center>
+    </form>
+
+
+    
+</body>
+</html>

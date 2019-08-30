@@ -5,4 +5,4 @@ from .models import Manga
 class MangaForm(forms.ModelForm):
     class Meta:
         model = Manga
-        fields = ['description', 'price', 'quantity']
+        fields = ['nome', 'autor', 'ano']
